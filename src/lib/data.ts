@@ -1,9 +1,36 @@
+import type { IconType } from "react-icons";
+import type { ImageProps } from "next/image";
+
 import colors from "tailwindcss/colors";
+import {
+  // SiAstro,
+  // SiBun,
+  SiChakraui,
+  // SiCloudflarepages,
+  SiMantine,
+  SiNextdotjs,
+  SiPython,
+  SiReact,
+  SiShadcnui,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+  // SiVercel,
+} from "react-icons/si";
+
+import livearchive_de_dark from "@/assets/livearchive_de_dark.png";
+import livearchive_de_light from "@/assets/livearchive_de_light.png";
+import livearchive_en_dark from "@/assets/livearchive_en_dark.png";
+import livearchive_en_light from "@/assets/livearchive_en_light.png";
+import mailflare_dark from "@/assets/mailflare_dark.png";
+import mailflare_light from "@/assets/mailflare_light.png";
+import polls_dark from "@/assets/polls_dark.png";
+import polls_light from "@/assets/polls_light.png";
 
 export type Technology = {
   name: string;
   website?: string;
-  icon?: string;
+  icon?: IconType;
   color?: string;
   class?: string;
 };
@@ -15,7 +42,11 @@ export type Project = {
   description?: string;
   icon?: string;
   technologies?: Technology[];
-  image?: string;
+  images?: {
+    [lang: string]: {
+      [theme: string]: ImageProps["src"];
+    };
+  };
 };
 
 export const technologies = {
@@ -24,13 +55,13 @@ export const technologies = {
     name: "TypeScript",
     website: "https://typescriptlang.org",
     color: colors.blue["500"],
-    icon: "simple-icons:typescript",
+    icon: SiTypescript,
   },
   python: {
     name: "Python",
     website: "https://python.org",
     color: colors.yellow["400"],
-    icon: "simple-icons:python",
+    icon: SiPython,
   },
 
   // Web Frameworks
@@ -38,19 +69,13 @@ export const technologies = {
     name: "React",
     website: "https://react.dev",
     color: colors.cyan["400"],
-    icon: "simple-icons:react",
+    icon: SiReact,
   },
   nextjs: {
     name: "Next.js",
     website: "https://nextjs.org",
     color: colors.white,
-    icon: "simple-icons:nextdotjs",
-  },
-  astro: {
-    name: "Astro",
-    website: "https://astro.build",
-    color: colors.fuchsia["500"],
-    icon: "simple-icons:astro",
+    icon: SiNextdotjs,
   },
 
   // Styling frameworks & component libraries
@@ -58,63 +83,63 @@ export const technologies = {
     name: "Tailwind CSS",
     website: "https://tailwindcss.com/",
     color: colors.cyan["500"],
-    icon: "simple-icons:tailwindcss",
+    icon: SiTailwindcss,
   },
   mantine: {
     name: "Mantine UI",
     website: "https://mantine.dev",
     color: colors.blue["400"],
-    icon: "simple-icons:mantine",
+    icon: SiMantine,
   },
   chakra: {
     name: "Chakra UI",
     website: "https://chakra-ui.com/",
     color: colors.teal["600"],
-    icon: "simple-icons:chakraui",
+    icon: SiChakraui,
   },
   shadcnui: {
     name: "shadcn/ui",
     website: "https://ui.shadcn.com",
     color: colors.white,
-    icon: "simple-icons:shadcnui",
+    icon: SiShadcnui,
   },
 
   // Deployments
-  vercel: {
-    name: "Vercel ",
-    website: "https://vercel.com",
-    color: colors.white,
-    icon: "simple-icons:vercel",
-  },
-  cloudflarePages: {
-    name: "Cloudflare Pages",
-    website: "https://www.cloudflare.com/developer-platform/pages",
-    color: colors.orange["500"],
-    icon: "simple-icons:cloudflarepages",
-  },
+  // vercel: {
+  //   name: "Vercel ",
+  //   website: "https://vercel.com",
+  //   color: colors.white,
+  //   icon: SiVercel,
+  // },
+  // cloudflarePages: {
+  //   name: "Cloudflare Pages",
+  //   website: "https://www.cloudflare.com/developer-platform/pages",
+  //   color: colors.orange["500"],
+  //   icon: SiCloudflarepages,
+  // },
 
   // Others
-  bun: {
-    name: "Bun",
-    website: "https://bun.sh/",
-    color: colors.orange["100"],
-    icon: "simple-icons:bun",
-  },
-  plasmo: {
-    name: "Plasmo",
-    website: "https://plasmo.com",
-    color: colors.white,
-  },
-  vidstack: {
-    name: "Vidstack Player",
-    website: "https://vidstack.io",
-    color: colors.white,
-  },
+  // bun: {
+  //   name: "Bun",
+  //   website: "https://bun.sh/",
+  //   color: colors.orange["100"],
+  //   icon: SiBun,
+  // },
+  // plasmo: {
+  //   name: "Plasmo",
+  //   website: "https://plasmo.com",
+  //   color: colors.white,
+  // },
+  // vidstack: {
+  //   name: "Vidstack Player",
+  //   website: "https://vidstack.io",
+  //   color: colors.white,
+  // },
   supabase: {
     name: "Supabase",
     website: "https://supabase.com",
     color: colors.emerald["400"],
-    icon: "simple-icons:supabase",
+    icon: SiSupabase,
   },
 } as const satisfies Record<string, Technology>;
 
@@ -124,13 +149,22 @@ export const projects: Project[] = [
     description:
       "Complete rewrite of the LiveArchive website with modern technologies and many new features.",
     website: "https://livearchive.net",
-    image: "/src/assets/livearchive_{locale}_{color}.png",
     technologies: [
       technologies.react,
       technologies.nextjs,
       technologies.chakra,
       // technologies.vidstack,
     ],
+    images: {
+      de: {
+        dark: livearchive_de_dark,
+        light: livearchive_en_light,
+      },
+      en: {
+        dark: livearchive_en_dark,
+        light: livearchive_en_light,
+      },
+    },
   },
   // {
   //   name: "LiveArchive Dashboard (WIP)",
@@ -148,13 +182,22 @@ export const projects: Project[] = [
       "Chrome and Firefox extension to use Cloudflare Email Routing as an email alias service.",
     website: "https://mailflare.pages.dev",
     source: "https://github.com/curetix/mailflare-extension",
-    image: "/src/assets/mailflare_{color}.png",
     technologies: [
       technologies.react,
       // technologies.plasmo,
       technologies.mantine,
       // technologies.cloudflarePages,
     ],
+    images: {
+      de: {
+        dark: mailflare_dark,
+        light: mailflare_light,
+      },
+      en: {
+        dark: mailflare_dark,
+        light: mailflare_light,
+      },
+    },
   },
   {
     name: "Supabase Polls",
@@ -162,7 +205,6 @@ export const projects: Project[] = [
       "My first React project, a simple website to create polls, vote in them and view their results in realtime.",
     website: "https://supabase-polls.vercel.app",
     source: "https://github.com/curetix/supabase-polls",
-    image: "/src/assets/polls_{color}.png",
     technologies: [
       technologies.react,
       technologies.nextjs,
@@ -170,6 +212,16 @@ export const projects: Project[] = [
       technologies.supabase,
       // technologies.vercel,
     ],
+    images: {
+      de: {
+        dark: polls_dark,
+        light: polls_light,
+      },
+      en: {
+        dark: polls_dark,
+        light: polls_light,
+      },
+    },
   },
   {
     name: "Webfiction Scraper",

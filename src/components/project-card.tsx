@@ -4,18 +4,27 @@ import { buttonVariants } from "@/components/ui/button";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { GlobeIcon } from "lucide-react";
 import { TechnologyBadge } from "@/components/technology-badge";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ProjectImage } from "@/components/project-image";
 
 type ProjectCardProps = {
   project: Project;
 };
 
 export function ProjectCard({
-  project: { name, description, source, website, technologies },
+  project: { name, description, source, website, technologies, images },
 }: ProjectCardProps) {
   return (
-    <div className="flex flex-row">
-      <div className="flex flex-col gap-1">
-        <h2 className="text-3xl font-bold">{name}</h2>
+    <Card className="hover:border-primary transition-colors">
+      <div className="p-3">
+        <ProjectImage
+          projectName={name}
+          images={images}
+          className="border rounded max-h-[20rem] shadow"
+        />
+      </div>
+      <CardHeader>
+        <CardTitle>{name}</CardTitle>
         <div className="flex gap-3">
           {source && (
             <a
@@ -37,13 +46,15 @@ export function ProjectCard({
             </a>
           )}
         </div>
-        <p>{description}</p>
+      </CardHeader>
+      <CardContent>{description}</CardContent>
+      <CardFooter>
         <div className="flex gap-1">
           {technologies?.map((t) => (
             <TechnologyBadge key={t.name} technology={t} />
           ))}
         </div>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 }
