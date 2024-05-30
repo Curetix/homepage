@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
-import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ColorModeToggle } from "@/components/color-mode-toggle";
+import { ControlButtonsGroup } from "@/components/control-buttons-group";
+import type { Metadata } from "next";
+
+import "./globals.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -17,9 +20,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
@@ -28,7 +31,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-            <ColorModeToggle className="absolute top-3 right-3 z-10" />
+          <ControlButtonsGroup className="absolute top-3 right-3" />
           {children}
         </ThemeProvider>
       </body>
