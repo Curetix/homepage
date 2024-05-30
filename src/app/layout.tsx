@@ -16,6 +16,16 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "Curetix",
   description: "Homepage of Curetix, a developer currently focused on web technologies.",
+  openGraph: {
+    images: {
+      url: "/api/og",
+      width: 1200,
+      height: 600,
+    },
+  },
+  other: {
+    "darkreader-lock": ""
+  }
 };
 
 export default function RootLayout({
