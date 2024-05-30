@@ -6,6 +6,8 @@ import { GlobeIcon } from "lucide-react";
 import { TechnologyBadge } from "@/components/technology-badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ProjectImage } from "@/components/project-image";
+import { ClientOnly } from "@/components/client-only";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type ProjectCardProps = {
   project: Project;
@@ -17,11 +19,9 @@ export function ProjectCard({
   return (
     <Card className="hover:border-primary transition-colors">
       <div className="p-3">
-        <ProjectImage
-          projectName={name}
-          images={images}
-          className="border rounded max-h-[20rem] shadow"
-        />
+        <ClientOnly fallback={<Skeleton className="w-full aspect-[16/9] rounded" />}>
+          <ProjectImage projectName={name} images={images} className="border rounded shadow" />
+        </ClientOnly>
       </div>
       <CardHeader>
         <CardTitle>{name}</CardTitle>
