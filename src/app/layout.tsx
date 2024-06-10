@@ -17,6 +17,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://curetix.eu"),
   title: "Curetix",
   description: "Homepage of Curetix, a developer currently focused on web technologies.",
   openGraph: {
@@ -26,8 +27,9 @@ export const metadata: Metadata = {
       height: 600,
     },
   },
-  other: {
-    "darkreader-lock": "",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://curetix.eu",
   },
 };
 
@@ -39,6 +41,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+        {/* Disable Dark Reader statically */}
+        <meta name="darkreader-lock" />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
