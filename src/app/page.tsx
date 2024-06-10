@@ -1,5 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
-import { SiGithub } from "@icons-pack/react-simple-icons";
+import { SiGithub } from "react-icons/si";
 import { ArrowDownIcon, MailIcon } from "lucide-react";
 import { projects } from "@/lib/data";
 import { ProjectCard } from "@/components/project-card";

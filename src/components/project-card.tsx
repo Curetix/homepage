@@ -1,7 +1,7 @@
 import type { Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { SiGithub } from "@icons-pack/react-simple-icons";
+import { SiGithub } from "react-icons/si";
 import { GlobeIcon } from "lucide-react";
 import { TechnologyBadge } from "@/components/technology-badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
