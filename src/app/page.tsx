@@ -26,11 +26,7 @@ export default function Home() {
                 <ArrowDownIcon className="mr-2 h-4 w-4" />
                 Projects
               </a>
-              <a
-                href="https://github.com/curetix"
-                target="_blank"
-                className={buttonVariants({ size: "lg" })}
-                rel="noreferrer">
+              <a href="https://github.com/curetix" className={buttonVariants({ size: "lg" })}>
                 <SiGithub className="mr-2 h-4 w-4" />
                 GitHub
               </a>
