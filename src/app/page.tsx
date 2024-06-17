@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/project-card";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <main className="flex flex-col">
       <section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
@@ -40,7 +40,7 @@ export default function Home() {
       </section>
 
       <section id="projects" className="mx-auto flex flex-col gap-5 p-10">
-        <h1 className="bg-clip-text text-center text-4xl md:text-4xl">Projects</h1>
+        <h2 className="bg-clip-text text-center text-4xl md:text-4xl">Projects</h2>
         <div className="grid gap-3 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.name} project={project} />
@@ -60,6 +60,6 @@ export default function Home() {
           </a>
         </nav>
       </footer>
-    </div>
+    </main>
   );
 }
