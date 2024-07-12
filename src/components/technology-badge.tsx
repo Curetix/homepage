@@ -1,7 +1,9 @@
 import type { Technology } from "@/lib/data";
-import { Badge } from "@/components/ui/badge";
-import { css } from "styled-system/css";
+
 import NextLink from "next/link";
+import { css } from "styled-system/css";
+
+import { Badge } from "@/components/ui/badge";
 
 type TechnologyBadgeProps = {
   technology: Technology;

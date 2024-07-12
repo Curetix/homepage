@@ -8,10 +8,10 @@ export default defineConfig({
   presets: [
     "@pandacss/preset-base",
     createPreset({
-      accentColor: "orange",
+      accentColor: "purple",
       grayColor: "slate",
-      borderRadius: "md",
-      // additionalColors: ["*"],
+      borderRadius: "lg",
+      additionalColors: ["red"],
     }),
   ],
   jsxFramework: "react",

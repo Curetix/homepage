@@ -1,5 +1,5 @@
-import type { IconType } from "react-icons";
 import type { ImageProps } from "next/image";
+import type { IconType } from "react-icons";
 
 import {
   SiChakraui,
@@ -40,6 +40,7 @@ export type Project = {
   description?: string;
   icon?: string;
   technologies?: Technology[];
+  isArchived?: boolean;
   images?: {
     [lang: string]: {
       [theme: string]: ImageProps["src"];
@@ -180,6 +181,7 @@ export const projects: Project[] = [
       "My first React project, a simple website to create polls, vote in them and view their results in realtime.",
     website: "https://supabase-polls.vercel.app",
     source: "https://github.com/curetix/supabase-polls",
+    isArchived: true,
     technologies: [
       technologies.react,
       technologies.nextjs,

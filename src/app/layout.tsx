@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+
 import { ThemeProvider } from "next-themes";
+import { Outfit } from "next/font/google";
 import { css, cx } from "styled-system/css";
 
 import { ClientOnly } from "@/components/client-only";

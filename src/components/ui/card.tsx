@@ -1,37 +1,37 @@
-'use client'
+"use client";
 
-import type { Assign } from '@ark-ui/react'
-import { type HTMLArkProps, ark } from '@ark-ui/react/factory'
-import { type CardVariantProps, card } from 'styled-system/recipes'
-import type { JsxStyleProps } from 'styled-system/types'
-import { createStyleContext } from '@/lib/create-style-context'
+import { createStyleContext } from "@/lib/create-style-context";
+import type { Assign } from "@ark-ui/react";
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory";
+import { type CardVariantProps, card } from "styled-system/recipes";
+import type { JsxStyleProps } from "styled-system/types";
 
-const { withProvider, withContext } = createStyleContext(card)
+const { withProvider, withContext } = createStyleContext(card);
 
-export interface RootProps extends Assign<JsxStyleProps, HTMLArkProps<'div'>>, CardVariantProps {}
-export const Root = withProvider<HTMLDivElement, RootProps>(ark.div, 'root')
+export interface RootProps extends Assign<JsxStyleProps, HTMLArkProps<"div">>, CardVariantProps {}
+export const Root = withProvider<HTMLDivElement, RootProps>(ark.div, "root");
 
-export const Body = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
+export const Body = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<"div">>>(
   ark.div,
-  'body',
-)
+  "body",
+);
 
-export const Description = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
+export const Description = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<"div">>>(
   ark.div,
-  'description',
-)
+  "description",
+);
 
-export const Footer = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
+export const Footer = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<"div">>>(
   ark.footer,
-  'footer',
-)
+  "footer",
+);
 
-export const Header = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
+export const Header = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<"div">>>(
   ark.div,
-  'header',
-)
+  "header",
+);
 
-export const Title = withContext<HTMLHeadingElement, Assign<JsxStyleProps, HTMLArkProps<'h3'>>>(
+export const Title = withContext<HTMLHeadingElement, Assign<JsxStyleProps, HTMLArkProps<"h3">>>(
   ark.h3,
-  'title',
-)
+  "title",
+);
