@@ -1,5 +1,7 @@
 import type { Technology } from "@/lib/data";
-import { badgeVariants } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
+import { css } from "styled-system/css";
+import NextLink from "next/link";
 
 type TechnologyBadgeProps = {
   technology: Technology;
@@ -9,17 +11,17 @@ export function TechnologyBadge({
   technology: { name, website, icon: Icon, color },
 }: TechnologyBadgeProps) {
   return (
-    <a
-      href={website}
-      target="_blank"
-      // style={{ "--color": color || "white" }}
-      className={badgeVariants({
-        class: "group relative hover:shadow-xl shadow-[var(--color)]",
-        // ...variantProps,
-      })}
-      rel="noreferrer">
-      {Icon && <Icon className="mr-1 transition-colors" />}
-      {name}
-    </a>
+    <Badge
+      asChild
+      //   className={badgeVariants({
+      //     class: "group relative hover:shadow-xl shadow-[var(--color)]",
+      //   })}
+      rel="noreferrer"
+      className={css({ display: "flex" })}>
+      <NextLink href={website || "#"} target="_blank">
+        {Icon && <Icon className="mr-1 transition-colors" />}
+        {name}
+      </NextLink>
+    </Badge>
   );
 }

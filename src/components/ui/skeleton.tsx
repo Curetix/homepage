@@ -1,7 +1,29 @@
-import { cn } from "@/lib/utils";
+import type { Assign, HTMLArkProps } from '@ark-ui/react'
+import { ark } from '@ark-ui/react/factory'
+import { forwardRef } from 'react'
+import { styled } from 'styled-system/jsx'
+import { type SkeletonVariantProps, skeleton } from 'styled-system/recipes'
+import type { JsxStyleProps } from 'styled-system/types'
 
-function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("animate-pulse rounded-md bg-muted", className)} {...props} />;
+const StyledSkeleton = styled(ark.div, skeleton)
+
+export interface SkeletonProps
+  extends Assign<JsxStyleProps, HTMLArkProps<'div'>>,
+    SkeletonVariantProps {
+  /**
+   *
+   * @default false
+   */
+  isLoaded?: boolean
 }
 
-export { Skeleton };
+export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>((props, ref) => {
+  const { isLoaded, ...otherProps } = props
+
+  if (isLoaded) {
+    return <styled.div animation="fade-in" ref={ref} {...otherProps} />
+  }
+  return <StyledSkeleton ref={ref} {...otherProps} />
+})
+
+Skeleton.displayName = 'Skeleton'

@@ -1,64 +1,127 @@
-import { buttonVariants } from "@/components/ui/button";
-import { SiGithub } from "react-icons/si";
-import { ArrowDownIcon, MailIcon } from "lucide-react";
-import { projects } from "@/lib/data";
 import { ProjectCard } from "@/components/project-card";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/lib/data";
+import { HiArrowDown, HiEnvelope } from "react-icons/hi2";
+import { SiGithub } from "react-icons/si";
+import { css } from "styled-system/css";
+import NextLink from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
-      <section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="bg-clip-text text-center text-4xl/[3rem] font-bold drop-shadow-sm md:text-7xl/[5rem]">
+    <main className={css({ display: "flex", flexDirection: "column" })}>
+      <section
+        id="hero"
+        className={css({ width: "full", py: { base: 12, md: 24, lg: 32, xl: 48 } })}>
+        <div className={css({ px: { base: 4, md: 6 } })}>
+          <div
+            className={css({
+              display: "flex",
+              flexDir: "column",
+              alignItems: "center",
+              spaceY: 4,
+              textAlign: "center",
+            })}>
+            <div className={css({ spaceY: 2 })}>
+              <h1
+                className={css({
+                  textAlign: "center",
+                  fontSize: "4xl",
+                  lineHeight: "3rem",
+                  fontWeight: "bold",
+                  dropShadow: "sm",
+                  md: {
+                    fontSize: "7xl",
+                    lineHeight: "5rem",
+                  },
+                })}>
                 {"Hi, I'm "}
-                <span className="inline-block bg-gradient-to-b from-yellow-400 via-pink-600 to-violet-700 bg-clip-text text-transparent">
+                <span
+                  className={css({
+                    display: "inline-block",
+                    color: "transparent",
+                    bgClip: "text",
+                    bgGradient: "to-b",
+                    gradientFrom: "yellow.400",
+                    gradientVia: "pink.600",
+                    gradientTo: "violet.700",
+                  })}>
                   Curetix
                 </span>
               </h1>
-              <p className="mx-auto text-balance text-center text-xl text-muted-foreground md:text-2xl">
+              <p
+                className={css({
+                  mx: "auto",
+                  textWrap: "balance",
+                  textAlign: "center",
+                  fontSize: "xl",
+                  color: "fg.muted",
+                  md: { fontSize: "2lx" },
+                })}>
                 I'm a developer who is currently focused on web projects
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-              <a href="#projects" className={buttonVariants({ size: "lg" })}>
-                <ArrowDownIcon className="mr-2 h-4 w-4" />
-                Projects
-              </a>
-              <a href="https://github.com/curetix" className={buttonVariants({ size: "lg" })}>
-                <SiGithub className="mr-2 h-4 w-4" />
-                GitHub
-              </a>
-              <a href="mailto:contact@curetix.eu" className={buttonVariants({ size: "lg" })}>
-                <MailIcon className="mr-2 h-4 w-4" />
-                Contact
-              </a>
+            <div
+              className={css({
+                display: "flex",
+                flexDir: "column",
+                gap: 2,
+                sm: { flexDir: "row", gap: 4 },
+              })}>
+              <Button asChild>
+                <NextLink href="#projects">
+                  <HiArrowDown />
+                  Projects
+                </NextLink>
+              </Button>
+              <Button asChild>
+                <NextLink href="https://github.com/curetix">
+                  <SiGithub />
+                  GitHub
+                </NextLink>
+              </Button>
+              <Button asChild>
+                <NextLink href="mailto:contact@curetix.eu">
+                  <HiEnvelope />
+                  Contact
+                </NextLink>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="projects" className="mx-auto flex flex-col gap-5 p-10">
-        <h2 className="bg-clip-text text-center text-4xl md:text-4xl">Projects</h2>
-        <div className="grid gap-3 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <section
+        id="projects"
+        className={css({ mx: "auto", display: "flex", flexDir: "column", gap: 5, p: 10 })}>
+        <h2 className={css({ textAlign: "center", fontSize: "4xl" })}>Projects</h2>
+        <div
+          className={css({
+            display: "grid",
+            gap: 3,
+            gridTemplateColumns: { base: 1, md: 2, xl: 3 },
+          })}>
           {projects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
         </div>
       </section>
 
-      <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6">
-        <p className="text-xs text-muted-foreground">
-          © Curetix {new Date().getFullYear()}. All rights reserved.
-        </p>
-        <nav className="flex gap-4 sm:ml-auto sm:gap-6">
+      <footer
+        className={css({
+          p: 6,
+          mx: "auto",
+        })}>
+        <p className={css({ color: "fg.muted" })}>
+          © Curetix {new Date().getFullYear()}. All rights reserved.{" "}
           <a
-            className="text-xs underline-offset-4 hover:underline"
+            className={css({
+              textUnderlineOffset: 4,
+              _hover: { textDecorationLine: "underline" },
+            })}
             href="mailto:contact@curetix.eu">
             contact@curetix.eu
           </a>
-        </nav>
+        </p>
       </footer>
     </main>
   );

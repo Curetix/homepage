@@ -1,12 +1,9 @@
 import type { IconType } from "react-icons";
 import type { ImageProps } from "next/image";
 
-import colors from "tailwindcss/colors";
 import {
-  // SiAstro,
-  // SiBun,
   SiChakraui,
-  // SiCloudflarepages,
+  SiCloudflarepages,
   SiMantine,
   SiNextdotjs,
   SiPython,
@@ -15,7 +12,7 @@ import {
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
-  // SiVercel,
+  SiVercel,
 } from "react-icons/si";
 
 import livearchive_de_dark from "@/assets/livearchive_de_dark.png";
@@ -26,6 +23,7 @@ import mailflare_dark from "@/assets/mailflare_dark.png";
 import mailflare_light from "@/assets/mailflare_light.png";
 import polls_dark from "@/assets/polls_dark.png";
 import polls_light from "@/assets/polls_light.png";
+import { token } from "styled-system/tokens";
 
 export type Technology = {
   name: string;
@@ -54,13 +52,13 @@ export const technologies = {
   typescript: {
     name: "TypeScript",
     website: "https://typescriptlang.org",
-    color: colors.blue["500"],
+    color: token("colors.blue.500"),
     icon: SiTypescript,
   },
   python: {
     name: "Python",
     website: "https://python.org",
-    color: colors.yellow["400"],
+    color: token("colors.yellow.400"),
     icon: SiPython,
   },
 
@@ -68,13 +66,13 @@ export const technologies = {
   react: {
     name: "React",
     website: "https://react.dev",
-    color: colors.cyan["400"],
+    color: token("colors.cyan.400"),
     icon: SiReact,
   },
   nextjs: {
     name: "Next.js",
     website: "https://nextjs.org",
-    color: colors.white,
+    color: token("colors.white"),
     icon: SiNextdotjs,
   },
 
@@ -82,63 +80,46 @@ export const technologies = {
   tailwind: {
     name: "Tailwind CSS",
     website: "https://tailwindcss.com/",
-    color: colors.cyan["500"],
+    color: token("colors.cyan.500"),
     icon: SiTailwindcss,
   },
   mantine: {
     name: "Mantine UI",
     website: "https://mantine.dev",
-    color: colors.blue["400"],
+    color: token("colors.blue.400"),
     icon: SiMantine,
   },
   chakra: {
     name: "Chakra UI",
     website: "https://chakra-ui.com/",
-    color: colors.teal["600"],
+    color: token("colors.teal.600"),
     icon: SiChakraui,
   },
-  shadcnui: {
-    name: "shadcn/ui",
-    website: "https://ui.shadcn.com",
-    color: colors.white,
-    icon: SiShadcnui,
+  panda: {
+    name: "Panda CSS",
+    website: "https://panda-css.com/",
+    color: token("colors.yellow.500"),
   },
 
   // Deployments
-  // vercel: {
-  //   name: "Vercel ",
-  //   website: "https://vercel.com",
-  //   color: colors.white,
-  //   icon: SiVercel,
-  // },
-  // cloudflarePages: {
-  //   name: "Cloudflare Pages",
-  //   website: "https://www.cloudflare.com/developer-platform/pages",
-  //   color: colors.orange["500"],
-  //   icon: SiCloudflarepages,
-  // },
+  vercel: {
+    name: "Vercel ",
+    website: "https://vercel.com",
+    color: token("colors.white"),
+    icon: SiVercel,
+  },
+  cloudflarePages: {
+    name: "Cloudflare Pages",
+    website: "https://www.cloudflare.com/developer-platform/pages",
+    color: token("colors.orange.500"),
+    icon: SiCloudflarepages,
+  },
 
   // Others
-  // bun: {
-  //   name: "Bun",
-  //   website: "https://bun.sh/",
-  //   color: colors.orange["100"],
-  //   icon: SiBun,
-  // },
-  // plasmo: {
-  //   name: "Plasmo",
-  //   website: "https://plasmo.com",
-  //   color: colors.white,
-  // },
-  // vidstack: {
-  //   name: "Vidstack Player",
-  //   website: "https://vidstack.io",
-  //   color: colors.white,
-  // },
   supabase: {
     name: "Supabase",
     website: "https://supabase.com",
-    color: colors.emerald["400"],
+    color: token("colors.emerald.400"),
     icon: SiSupabase,
   },
 } as const satisfies Record<string, Technology>;
@@ -149,12 +130,7 @@ export const projects: Project[] = [
     description:
       "Complete rewrite of the LiveArchive website with modern technologies and many new features.",
     website: "https://livearchive.net",
-    technologies: [
-      technologies.react,
-      technologies.nextjs,
-      technologies.chakra,
-      // technologies.vidstack,
-    ],
+    technologies: [technologies.react, technologies.nextjs, technologies.chakra],
     images: {
       de: {
         dark: livearchive_de_dark,
@@ -184,9 +160,8 @@ export const projects: Project[] = [
     source: "https://github.com/curetix/mailflare-extension",
     technologies: [
       technologies.react,
-      // technologies.plasmo,
       technologies.mantine,
-      // technologies.cloudflarePages,
+      // technologies.cloudflarePages
     ],
     images: {
       de: {
@@ -231,15 +206,15 @@ export const projects: Project[] = [
     technologies: [technologies.python],
   },
   {
-    name: "Portfolio",
+    name: "Homepage",
     description: "The website you're currently looking at :)",
     website: "#hero",
     source: "https://github.com/curetix/portfolio",
     technologies: [
       technologies.react,
       technologies.nextjs,
-      technologies.tailwind,
-      // technologies.vercel
+      technologies.panda,
+      // technologies.vercel,
     ],
   },
 ];

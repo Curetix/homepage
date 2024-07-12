@@ -1,20 +1,15 @@
-import type { ReactNode } from "react";
 import type { Metadata } from "next";
-
-import { Inter as FontSans } from "next/font/google";
-import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider";
+import { Outfit } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import { css, cx } from "styled-system/css";
 
 import { ClientOnly } from "@/components/client-only";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import { Skeleton } from "@/components/ui/skeleton";
 
 import "./globals.css";
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+const font = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://curetix.eu"),
@@ -33,10 +28,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+    <html lang="en" className={css({ scrollBehavior: "smooth" })}>
+      <body
+        className={cx(font.className, css({ minHeight: "100vh", fontSmoothing: "antialiased" }))}>
         {/* Disable Dark Reader statically */}
         <meta name="darkreader-lock" />
 
@@ -45,8 +45,25 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          <ClientOnly fallback={<Skeleton className="absolute top-3 right-3 w-[40px] h-[40px]" />}>
-            <ThemeSwitcher className="absolute top-3 right-3" />
+          <ClientOnly
+            fallback={
+              <Skeleton
+                className={css({
+                  position: "absolute",
+                  top: 3,
+                  right: 3,
+                  width: "54px",
+                  height: "40px",
+                })}
+              />
+            }>
+            <ThemeSwitcher
+              className={css({
+                position: "absolute",
+                top: 3,
+                right: 3,
+              })}
+            />
           </ClientOnly>
 
           {children}
