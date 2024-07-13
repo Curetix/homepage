@@ -7,6 +7,7 @@ import { css, cx } from "styled-system/css";
 import { ClientOnly } from "@/components/client-only";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Div } from "@/components/ui/elements";
 
 import "./globals.css";
 
@@ -46,26 +47,11 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          <ClientOnly
-            fallback={
-              <Skeleton
-                className={css({
-                  position: "absolute",
-                  top: 3,
-                  right: 3,
-                  width: "40px",
-                  height: "40px",
-                })}
-              />
-            }>
-            <ThemeSwitcher
-              className={css({
-                position: "absolute",
-                top: 3,
-                right: 3,
-              })}
-            />
-          </ClientOnly>
+          <Div position="absolute" top={3} right={3}>
+            <ClientOnly fallback={<Skeleton width="40px" height="40px" />}>
+              <ThemeSwitcher />
+            </ClientOnly>
+          </Div>
 
           {children}
         </ThemeProvider>

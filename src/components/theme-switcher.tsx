@@ -22,7 +22,7 @@ export function ThemeSwitcher(props: IconButtonProps) {
           </IconButton>
         </Menu.Trigger>
         <Menu.Positioner>
-          <Menu.Content className={css({ maxWidth: "fit-content" })}>
+          <Menu.Content maxWidth="fit-content">
             <Menu.ItemGroup>
               <Menu.ItemGroupLabel>Change Theme</Menu.ItemGroupLabel>
               <Menu.Item value="light" onClick={() => setTheme("light")}>

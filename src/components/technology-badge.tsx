@@ -1,7 +1,6 @@
 import type { Technology } from "@/lib/data";
 
 import NextLink from "next/link";
-import { css } from "styled-system/css";
 
 import { Badge } from "@/components/ui/badge";
 
@@ -10,18 +9,12 @@ type TechnologyBadgeProps = {
 };
 
 export function TechnologyBadge({
-  technology: { name, website, icon: Icon, color },
+  technology: { name, website, icon: Icon },
 }: TechnologyBadgeProps) {
   return (
-    <Badge
-      asChild
-      //   className={badgeVariants({
-      //     class: "group relative hover:shadow-xl shadow-[var(--color)]",
-      //   })}
-      rel="noreferrer"
-      className={css({ display: "flex" })}>
+    <Badge asChild rel="noreferrer" display="flex">
       <NextLink href={website || "#"} target="_blank">
-        {Icon && <Icon className="mr-1 transition-colors" />}
+        {Icon && <Icon />}
         {name}
       </NextLink>
     </Badge>

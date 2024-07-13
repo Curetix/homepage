@@ -93,7 +93,13 @@ export default function Home() {
 
       <section
         id="projects"
-        className={css({ mx: "auto", display: "flex", flexDir: "column", gap: 5, p: 10 })}>
+        className={css({
+          mx: "auto",
+          display: "flex",
+          flexDir: "column",
+          gap: 5,
+          p: { base: 5, md: 10 },
+        })}>
         <h2 className={css({ textAlign: "center", fontSize: "4xl" })}>Projects</h2>
         <div
           className={css({

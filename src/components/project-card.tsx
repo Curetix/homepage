@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import * as Card from "@/components/ui/card";
 import { Link } from "@/components/ui/link";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Div } from "@/components/ui/elements";
 
 type ProjectCardProps = {
   project: Project;
@@ -22,28 +23,19 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <Card.Root
-      className={css({
-        shadow: "xs",
-        borderWidth: 1,
-        borderColor: "transparent",
-        transition: "colors",
-        boxSizing: "border-box",
-        _hover: {
-          borderColor: "accent.emphasized",
-        },
-      })}>
-      <div className={css({ p: 3 })}>
-        <ClientOnly
-          fallback={
-            <Skeleton className={css({ width: "full", aspectRatio: 16 / 9, rounded: "lg" })} />
-          }>
+      shadow="xs"
+      borderWidth={1}
+      transition="colors"
+      _hover={{ borderColor: "accent.emphasized" }}>
+      <Div pt={3} px={3}>
+        <ClientOnly fallback={<Skeleton width="full" aspectRatio={16 / 9} rounded="lg" />}>
           <ProjectImage
             projectName={name}
             images={images}
             className={css({ borderWidth: 1, rounded: "lg", shadow: "xs" })}
           />
         </ClientOnly>
-      </div>
+      </Div>
       <Card.Header>
         <Card.Title>
           {name}
@@ -53,7 +45,7 @@ export function ProjectCard({
             </Badge>
           )}
         </Card.Title>
-        <div className={css({ display: "flex", gap: 3 })}>
+        <Div display="flex" gap={3}>
           {source && (
             <Link asChild>
               <NextLink href={source} target="_blank" rel="noreferrer">
@@ -70,10 +62,10 @@ export function ProjectCard({
               </NextLink>
             </Link>
           )}
-        </div>
+        </Div>
       </Card.Header>
       <Card.Body>{description}</Card.Body>
-      <Card.Footer className={css({ display: "flex", gap: 1, justifyContent: "flex-start" })}>
+      <Card.Footer pt={0} display="flex" flexWrap="wrap" gap={1} justifyContent="flex-start">
         {technologies?.map((t) => (
           <TechnologyBadge key={t.name} technology={t} />
         ))}
