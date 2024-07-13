@@ -127,9 +127,9 @@ export const technologies = {
 
 export const projects: Project[] = [
   {
-    name: "LiveArchive",
+    name: "LiveArchive Frontend",
     description:
-      "Complete rewrite of the LiveArchive website with modern technologies and many new features.",
+      "Complete rewrite of the LiveArchive website with optimizations for mobile and many new features. Also working on a dashboard for users and partners.",
     website: "https://livearchive.net",
     technologies: [technologies.react, technologies.nextjs, technologies.chakra],
     images: {
@@ -209,7 +209,8 @@ export const projects: Project[] = [
   },
   {
     name: "Homepage",
-    description: "The website you're currently looking at :)",
+    description:
+      "The website you're currently looking at, where I'm experimenting with Panda CSS and Park UI.",
     website: "#hero",
     source: "https://github.com/curetix/portfolio",
     technologies: [

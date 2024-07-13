@@ -53,7 +53,7 @@ export default function RootLayout({
                   position: "absolute",
                   top: 3,
                   right: 3,
-                  width: "54px",
+                  width: "40px",
                   height: "40px",
                 })}
               />

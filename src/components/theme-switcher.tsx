@@ -4,25 +4,25 @@ import { useTheme } from "next-themes";
 import { HiMoon, HiSun } from "react-icons/hi2";
 import { css } from "styled-system/css";
 
-import { Button, type ButtonProps } from "@/components/ui/button";
 import * as Menu from "@/components/ui/menu";
+import { IconButton, type IconButtonProps } from "./ui/icon-button";
 
-export function ThemeSwitcher({ className }: ButtonProps) {
+export function ThemeSwitcher(props: IconButtonProps) {
   const { setTheme, resolvedTheme } = useTheme();
 
   return (
     <>
       <meta name="color-scheme" content={resolvedTheme} />
-      <Menu.Root positioning={{ placement: "bottom-start" }}>
+      <Menu.Root>
         <Menu.Trigger asChild>
-          <Button variant="subtle" colorPalette="accent" className={className}>
+          <IconButton variant="subtle" colorPalette="accent" {...props}>
             {resolvedTheme === "light" && <HiSun />}
             {resolvedTheme === "dark" && <HiMoon />}
             <span className={css({ srOnly: true })}>Select theme</span>
-          </Button>
+          </IconButton>
         </Menu.Trigger>
         <Menu.Positioner>
-          <Menu.Content>
+          <Menu.Content className={css({ maxWidth: "fit-content" })}>
             <Menu.ItemGroup>
               <Menu.ItemGroupLabel>Change Theme</Menu.ItemGroupLabel>
               <Menu.Item value="light" onClick={() => setTheme("light")}>
