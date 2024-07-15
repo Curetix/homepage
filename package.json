@@ -21,7 +21,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@pandacss/dev": "^0.42.0",
-    "@park-ui/panda-preset": "^0.38.1",
+    "@park-ui/panda-preset": "^0.39.0",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
