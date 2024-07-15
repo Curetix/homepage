@@ -129,7 +129,7 @@ export const projects: Project[] = [
   {
     name: "LiveArchive Frontend",
     description:
-      "Complete rewrite of the LiveArchive website with optimizations for mobile and many new features. Also working on a dashboard for users and partners.",
+      "Complete rewrite of the LiveArchive website with optimizations for mobile and many new features.",
     website: "https://livearchive.net",
     technologies: [technologies.react, technologies.nextjs, technologies.chakra],
     images: {
