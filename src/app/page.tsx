@@ -1,11 +1,10 @@
+import { ProjectCard } from "@/components/project-card";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/lib/data";
 import NextLink from "next/link";
 import { HiArrowDown, HiEnvelope } from "react-icons/hi2";
 import { SiGithub } from "react-icons/si";
 import { css } from "styled-system/css";
-
-import { ProjectCard } from "@/components/project-card";
-import { Button } from "@/components/ui/button";
-import { projects } from "@/lib/data";
 
 export default function Home() {
   return (

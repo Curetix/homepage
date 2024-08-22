@@ -157,7 +157,7 @@ export const projects: Project[] = [
     name: "MailFlare",
     description:
       "Chrome and Firefox extension to use Cloudflare Email Routing as an email alias service.",
-    website: "https://mailflare.pages.dev",
+    website: "https://mailflare.cc",
     source: "https://github.com/curetix/mailflare-extension",
     technologies: [
       technologies.react,
@@ -212,7 +212,7 @@ export const projects: Project[] = [
     description:
       "The website you're currently looking at, where I'm experimenting with Panda CSS and Park UI.",
     website: "#hero",
-    source: "https://github.com/curetix/portfolio",
+    source: "https://github.com/curetix/homepage",
     technologies: [
       technologies.react,
       technologies.nextjs,

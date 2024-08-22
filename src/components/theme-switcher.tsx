@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { HiMoon, HiSun } from "react-icons/hi2";
 import { css } from "styled-system/css";
 
-import * as Menu from "@/components/ui/menu";
+import { Menu } from "@/components/ui/menu";
 import { IconButton, type IconButtonProps } from "./ui/icon-button";
 
 export function ThemeSwitcher(props: IconButtonProps) {

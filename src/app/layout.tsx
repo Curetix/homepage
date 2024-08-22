@@ -1,15 +1,12 @@
-import type { Metadata } from "next";
-
-import { ThemeProvider } from "next-themes";
-import { Outfit } from "next/font/google";
-import { css, cx } from "styled-system/css";
-
 import { ClientOnly } from "@/components/client-only";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Div } from "@/components/ui/elements";
-
+import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
+import { Outfit } from "next/font/google";
+import { css, cx } from "styled-system/css";
 import "./globals.css";
+import { Box } from "styled-system/jsx";
 
 const font = Outfit({ subsets: ["latin"] });
 
@@ -47,11 +44,11 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          <Div position="absolute" top={3} right={3}>
+          <Box position="absolute" top={3} right={3}>
             <ClientOnly fallback={<Skeleton width="40px" height="40px" />}>
               <ThemeSwitcher />
             </ClientOnly>
-          </Div>
+          </Box>
 
           {children}
         </ThemeProvider>
