@@ -1,6 +1,6 @@
 "use client";
 
-import type { Project } from "@/lib/data";
+import type { Project } from "~/lib/data";
 import { useTheme } from "next-themes";
 import type { ImageProps } from "next/image";
 import Image from "next/image";

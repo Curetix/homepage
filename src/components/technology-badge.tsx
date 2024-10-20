@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import type { Technology } from "@/lib/data";
+import { Badge } from "~/components/ui/badge";
+import type { Technology } from "~/lib/data";
 import NextLink from "next/link";
 
 type TechnologyBadgeProps = {

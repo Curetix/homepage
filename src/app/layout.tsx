@@ -1,6 +1,6 @@
-import { ClientOnly } from "@/components/client-only";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { Skeleton } from "@/components/ui/skeleton";
+import { ClientOnly } from "~/components/client-only";
+import { ThemeSwitcher } from "~/components/theme-switcher";
+import { Skeleton } from "~/components/ui/skeleton";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Outfit } from "next/font/google";

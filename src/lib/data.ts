@@ -15,14 +15,14 @@ import {
   SiVercel,
 } from "react-icons/si";
 
-import livearchive_de_dark from "@/assets/livearchive_de_dark.png";
-import livearchive_de_light from "@/assets/livearchive_de_light.png";
-import livearchive_en_dark from "@/assets/livearchive_en_dark.png";
-import livearchive_en_light from "@/assets/livearchive_en_light.png";
-import mailflare_dark from "@/assets/mailflare_dark.png";
-import mailflare_light from "@/assets/mailflare_light.png";
-import polls_dark from "@/assets/polls_dark.png";
-import polls_light from "@/assets/polls_light.png";
+import livearchive_de_dark from "~/assets/livearchive_de_dark.png";
+import livearchive_de_light from "~/assets/livearchive_de_light.png";
+import livearchive_en_dark from "~/assets/livearchive_en_dark.png";
+import livearchive_en_light from "~/assets/livearchive_en_light.png";
+import mailflare_dark from "~/assets/mailflare_dark.png";
+import mailflare_light from "~/assets/mailflare_light.png";
+import polls_dark from "~/assets/polls_dark.png";
+import polls_light from "~/assets/polls_light.png";
 import { token } from "styled-system/tokens";
 
 export type Technology = {
