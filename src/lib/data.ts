@@ -143,27 +143,13 @@ export const projects: Project[] = [
       },
     },
   },
-  // {
-  //   name: "LiveArchive Dashboard (WIP)",
-  //   description: "User dashboard to manage account and channel settings, videos, teams, ...",
-  //   technologies: [
-  //     technologies.react,
-  //     technologies.nextjs,
-  //     technologies.tailwind,
-  //     technologies.shadcnui,
-  //   ],
-  // },
   {
     name: "MailFlare",
     description:
       "Chrome and Firefox extension to use Cloudflare Email Routing as an email alias service.",
     website: "https://mailflare.cc",
     source: "https://github.com/curetix/mailflare-extension",
-    technologies: [
-      technologies.react,
-      technologies.mantine,
-      // technologies.cloudflarePages
-    ],
+    technologies: [technologies.react, technologies.mantine, technologies.cloudflarePages],
     images: {
       de: {
         dark: mailflare_dark,
@@ -179,7 +165,6 @@ export const projects: Project[] = [
     name: "Supabase Polls",
     description:
       "My first React project, a simple website to create polls, vote in them and view their results in realtime.",
-    website: "https://supabase-polls.vercel.app",
     source: "https://github.com/curetix/supabase-polls",
     isArchived: true,
     technologies: [
