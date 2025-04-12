@@ -1,17 +1,17 @@
 import { defineConfig } from "@pandacss/dev";
 import { createPreset } from "@park-ui/panda-preset";
+import purple from "@park-ui/panda-preset/colors/purple";
+import slate from "@park-ui/panda-preset/colors/slate";
 
 export default defineConfig({
   preflight: true,
   include: ["./src/app/**/*.{js,jsx,ts,tsx}", "./src/components/**/*.{js,jsx,ts,tsx}"],
   exclude: [],
   presets: [
-    "@pandacss/preset-base",
     createPreset({
-      accentColor: "purple",
-      grayColor: "slate",
-      borderRadius: "lg",
-      additionalColors: ["red"],
+      accentColor: purple,
+      grayColor: slate,
+      radius: "lg",
     }),
   ],
   jsxFramework: "react",

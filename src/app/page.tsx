@@ -104,7 +104,11 @@ export default function Home() {
           className={css({
             display: "grid",
             gap: 3,
-            gridTemplateColumns: { base: 1, md: 2, xl: 3 },
+            gridTemplateColumns: {
+              base: "repeat(1, minmax(0, 1fr))",
+              md: "repeat(2, minmax(0, 1fr))",
+              xl: "repeat(3, minmax(0, 1fr))",
+            },
           })}>
           {projects.map((project) => (
             <ProjectCard key={project.name} project={project} />
