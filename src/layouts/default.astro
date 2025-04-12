@@ -1,0 +1,53 @@
+---
+import ColorModeScript from "~/components/color-mode-script.astro";
+import "@fontsource/outfit";
+import "../index.css";
+
+import { css } from "styled-system/css";
+---
+
+<!doctype html>
+<html lang="en" class={css({ scrollBehavior: "smooth" })}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="darkreader-lock" />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://curetix.eu" />
+
+    <title>Curetix</title>
+    <meta
+      name="description"
+      content="Homepage of Curetix, a developer currently focused on web technologies."
+    />
+    <meta property="og:title" content="Curetix" />
+    <meta
+      property="og:description"
+      content="Homepage of Curetix, a developer currently focused on web technologies."
+    />
+    <meta property="og:image" content="https://curetix.eu/api/og" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="600" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Curetix" />
+    <meta
+      name="twitter:description"
+      content="Homepage of Curetix, a developer currently focused on web technologies."
+    />
+    <meta name="twitter:image" content="https://curetix.eu/api/og" />
+    <meta name="twitter:image:width" content="1200" />
+    <meta name="twitter:image:height" content="600" />
+
+    <ColorModeScript />
+  </head>
+  <body class={css({ minHeight: "100vh", fontSmoothing: "antialiased" })}>
+    <slot />
+  </body>
+</html>

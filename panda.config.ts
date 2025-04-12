@@ -5,8 +5,6 @@ import slate from "@park-ui/panda-preset/colors/slate";
 
 export default defineConfig({
   preflight: true,
-  include: ["./src/app/**/*.{js,jsx,ts,tsx}", "./src/components/**/*.{js,jsx,ts,tsx}"],
-  exclude: [],
   presets: [
     createPreset({
       accentColor: purple,
@@ -14,7 +12,8 @@ export default defineConfig({
       radius: "lg",
     }),
   ],
-  jsxFramework: "react",
+  include: ["./src/**/*.{js,jsx,ts,tsx,astro}"],
+  exclude: [],
   outdir: "styled-system",
   theme: {
     extend: {

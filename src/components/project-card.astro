@@ -1,0 +1,107 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import { css, cx } from "styled-system/css";
+import { badge, card, link } from "styled-system/recipes";
+import type { Project } from "~/data/projects";
+
+interface Props extends Project {}
+
+const { name, description, source, website, technologies, images, isArchived } =
+  Astro.props;
+
+const classes = card();
+---
+
+<div
+  class={cx(
+    classes.root,
+    css({
+      shadow: "xs",
+      borderWidth: 1,
+      transition: "colors",
+      _hover: { borderColor: "accent.emphasized" },
+    })
+  )}
+>
+  <div class={css({ pt: 3, px: 3 })}>
+    <!-- <ClientOnly
+      fallback={(<Skeleton width="full" aspectRatio={16 / 9} rounded="lg" />)}
+    >
+      <ProjectImage
+        projectName={name}
+        images={images}
+        className={css({ borderWidth: 1, rounded: "lg", shadow: "xs" })}
+      />
+    </ClientOnly> -->
+    <!-- {
+      images?.["en"]?.["dark"] && (
+        <Image
+          src={images["en"]["dark"]}
+          alt={`Screenshot of the project ${name}`}
+        />
+      )
+    } -->
+  </div>
+  <div class={classes.header}>
+    <h3 class={classes.title}>
+      {name}
+      {
+        isArchived && (
+          <div class={badge({ variant: "subtle", colorPalette: "red", ml: 2 })}>
+            Archived
+          </div>
+        )
+      }
+    </h3>
+    <div class={css({ display: "flex", gap: 3 })}>
+      {
+        source && (
+          <a class={link()} href={source} target="_blank" rel="noreferrer">
+            <Icon name="logos/github" />
+            Source
+          </a>
+        )
+      }
+      {
+        website && (
+          <a
+            class={link()}
+            href={website}
+            target={website.startsWith("http") ? "_blank" : undefined}
+          >
+            <Icon name="globe" />
+            Visit
+          </a>
+        )
+      }
+    </div>
+  </div>
+  <div class={classes.body}>{description}</div>
+  <div
+    class={cx(
+      classes.footer,
+      css({
+        pt: 0,
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 1,
+        justifyContent: "flex-start",
+      })
+    )}
+  >
+    {
+      technologies?.map((t) => (
+        <a
+          class={cx(badge(), css({ display: "flex" }))}
+          href={t.website || "#"}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t.icon && <Icon name={`logos/${t.icon}`} />}
+          {t.name}
+        </a>
+      ))
+    }
+  </div>
+</div>
