@@ -5,6 +5,10 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
     integrations: [icon()],
+    experimental: {
+        responsiveImages: true,
+        svg: true,
+    },
     build: {
         inlineStylesheets: "always"
     }

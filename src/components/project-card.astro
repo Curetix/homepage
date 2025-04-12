@@ -39,6 +39,8 @@ const classes = card();
         <Image
           src={images["en"]["dark"]}
           alt={`Screenshot of the project ${name}`}
+          layout="responsive"
+          priority
         />
       )
     }
@@ -48,9 +50,7 @@ const classes = card();
       {name}
       {
         isArchived && (
-          <div class={badge({ variant: "subtle", colorPalette: "red", ml: 2 })}>
-            Archived
-          </div>
+          <div class={badge({ variant: "subtle", ml: 2 })}>Archived</div>
         )
       }
     </h3>
