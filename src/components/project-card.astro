@@ -37,6 +37,12 @@ const classes = card();
     {
       images?.["en"]?.["dark"] && (
         <Image
+          class={css({
+            // borderStyle: "solid",
+            borderWidth: 1,
+            rounded: "md",
+            shadow: "xs",
+          })}
           src={images["en"]["dark"]}
           alt={`Screenshot of the project ${name}`}
           layout="responsive"

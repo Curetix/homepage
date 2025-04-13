@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon/components";
+import { css, cx } from "styled-system/css";
+import { button } from "styled-system/recipes";
+---
+
+<div class={css({ position: "absolute", top: 3, right: 3 })}>
+  <button
+    id="color-mode-button"
+    class={cx(button({ variant: "subtle" }), css({ px: 0 }))}
+    data-current-mode="dark"
+  >
+    <Icon id="color-mode-button-icon-light" name="sun" />
+    <Icon id="color-mode-button-icon-dark" name="moon" />
+    <span id="color-mode-button-aria" class={css({ srOnly: true })}>
+      Toggle color theme
+    </span>
+  </button>
+</div>
+
+<style>
+  [data-current-mode="light"] #color-mode-button-icon-dark {
+    display: none;
+  }
+
+  [data-current-mode="dark"] #color-mode-button-icon-light {
+    display: none;
+  }
+</style>
+
+<script>
+  function getSystemTheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  let currentTheme = localStorage.getItem("theme") ?? getSystemTheme();
+
+  const colorModeButton = document.getElementById("color-mode-button")!;
+  colorModeButton.setAttribute("data-current-mode", currentTheme);
+  colorModeButton.addEventListener("click", () => {
+    currentTheme = currentTheme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", currentTheme);
+    colorModeButton.setAttribute("data-current-mode", currentTheme);
+  });
+</script>

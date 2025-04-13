@@ -4,6 +4,7 @@ import "@fontsource/outfit";
 import "../index.css";
 
 import { css } from "styled-system/css";
+import ColorModeButton from "~/components/color-mode-button.astro";
 ---
 
 <!doctype html>
@@ -48,6 +49,7 @@ import { css } from "styled-system/css";
     <ColorModeScript />
   </head>
   <body class={css({ minHeight: "100vh", fontSmoothing: "antialiased" })}>
+    <ColorModeButton />
     <slot />
   </body>
 </html>
