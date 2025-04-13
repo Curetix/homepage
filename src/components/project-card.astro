@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 import { css, cx } from "styled-system/css";
 import { badge, card, link } from "styled-system/recipes";
 import type { Project } from "~/data/projects";
@@ -26,38 +26,23 @@ const classes = card();
 >
   <div class={css({ pt: 3, px: 3 })}>
     {
-      images && (
-        <>
-          <Image
+      images &&
+        ["dark", "light"].map((mode) => (
+          <Picture
+            src={images["en"][mode]}
+            formats={["avif", "webp"]}
+            alt={`Screenshot of the project ${name}`}
+            layout="responsive"
             class={cx(
-              "dark-mode-only",
+              `${mode}-mode-only`,
               css({
-                // borderStyle: "solid",
                 borderWidth: 1,
                 rounded: "md",
                 shadow: "xs",
               })
             )}
-            src={images["en"]["dark"]}
-            alt={`Screenshot of the project ${name}`}
-            layout="responsive"
           />
-          <Image
-            class={cx(
-              "light-mode-only",
-              css({
-                // borderStyle: "solid",
-                borderWidth: 1,
-                rounded: "md",
-                shadow: "xs",
-              })
-            )}
-            src={images["en"]["light"]}
-            alt={`Screenshot of the project ${name}`}
-            layout="responsive"
-          />
-        </>
-      )
+        ))
     }
   </div>
   <div class={classes.header}>
