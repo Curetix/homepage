@@ -8,25 +8,12 @@ import { button } from "styled-system/recipes";
   <button
     id="color-mode-button"
     class={cx(button({ variant: "subtle" }), css({ px: 0 }))}
-    data-current-mode="dark"
   >
-    <Icon id="color-mode-button-icon-light" name="sun" />
-    <Icon id="color-mode-button-icon-dark" name="moon" />
-    <span id="color-mode-button-aria" class={css({ srOnly: true })}>
-      Toggle color theme
-    </span>
+    <Icon class="light-mode-only" name="sun" />
+    <Icon class="dark-mode-only" name="moon" />
+    <span class={css({ srOnly: true })}>Toggle color theme</span>
   </button>
 </div>
-
-<style>
-  [data-current-mode="light"] #color-mode-button-icon-dark {
-    display: none;
-  }
-
-  [data-current-mode="dark"] #color-mode-button-icon-light {
-    display: none;
-  }
-</style>
 
 <script>
   function getSystemTheme() {
@@ -35,13 +22,17 @@ import { button } from "styled-system/recipes";
       : "light";
   }
 
-  let currentTheme = localStorage.getItem("theme") ?? getSystemTheme();
+  function toggleTheme() {
+    const currentTheme = localStorage.getItem("theme") ?? getSystemTheme();
+    const newTheme = currentTheme === "light" ? "dark" : "light";
 
-  const colorModeButton = document.getElementById("color-mode-button")!;
-  colorModeButton.setAttribute("data-current-mode", currentTheme);
-  colorModeButton.addEventListener("click", () => {
-    currentTheme = currentTheme === "light" ? "dark" : "light";
-    localStorage.setItem("theme", currentTheme);
-    colorModeButton.setAttribute("data-current-mode", currentTheme);
-  });
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.remove(currentTheme);
+    document.documentElement.classList.add(newTheme);
+    document.documentElement.style.colorScheme = newTheme;
+  }
+
+  document
+    .getElementById("color-mode-button")
+    ?.addEventListener("click", () => toggleTheme());
 </script>

@@ -25,29 +25,38 @@ const classes = card();
   )}
 >
   <div class={css({ pt: 3, px: 3 })}>
-    <!-- <ClientOnly
-      fallback={(<Skeleton width="full" aspectRatio={16 / 9} rounded="lg" />)}
-    >
-      <ProjectImage
-        projectName={name}
-        images={images}
-        className={css({ borderWidth: 1, rounded: "lg", shadow: "xs" })}
-      />
-    </ClientOnly> -->
     {
-      images?.["en"]?.["dark"] && (
-        <Image
-          class={css({
-            // borderStyle: "solid",
-            borderWidth: 1,
-            rounded: "md",
-            shadow: "xs",
-          })}
-          src={images["en"]["dark"]}
-          alt={`Screenshot of the project ${name}`}
-          layout="responsive"
-          priority
-        />
+      images && (
+        <>
+          <Image
+            class={cx(
+              "dark-mode-only",
+              css({
+                // borderStyle: "solid",
+                borderWidth: 1,
+                rounded: "md",
+                shadow: "xs",
+              })
+            )}
+            src={images["en"]["dark"]}
+            alt={`Screenshot of the project ${name}`}
+            layout="responsive"
+          />
+          <Image
+            class={cx(
+              "light-mode-only",
+              css({
+                // borderStyle: "solid",
+                borderWidth: 1,
+                rounded: "md",
+                shadow: "xs",
+              })
+            )}
+            src={images["en"]["light"]}
+            alt={`Screenshot of the project ${name}`}
+            layout="responsive"
+          />
+        </>
       )
     }
   </div>
@@ -56,7 +65,9 @@ const classes = card();
       {name}
       {
         isArchived && (
-          <div class={badge({ variant: "subtle", ml: 2 })}>Archived</div>
+          <div class={cx(badge({ variant: "subtle" }), css({ ml: 2 }))}>
+            Archived
+          </div>
         )
       }
     </h3>

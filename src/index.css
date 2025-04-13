@@ -3,3 +3,11 @@
 body {
     font-family: "Outfit";
 }
+
+.dark .light-mode-only {
+    display: none;
+}
+
+.light .dark-mode-only {
+    display: none;
+}
