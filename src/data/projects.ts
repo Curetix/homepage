@@ -59,6 +59,12 @@ export const technologies = {
     color: token("colors.white"),
     icon: "nextdotjs",
   },
+  astro: {
+    name: "Astro",
+    website: "https://astro.build",
+    color: token("colors.fuchsia.500"),
+    icon: "astro",
+  },
 
   // Styling frameworks & component libraries
   tailwind: {
@@ -122,7 +128,7 @@ export const projects: Project[] = [
     images: {
       de: {
         dark: livearchive_de_dark,
-        light: livearchive_en_light,
+        light: livearchive_de_light,
       },
       en: {
         dark: livearchive_en_dark,
@@ -186,12 +192,11 @@ export const projects: Project[] = [
   {
     name: "Homepage",
     description:
-      "The website you're currently looking at, where I'm experimenting with Panda CSS and Park UI.",
+      "The website you're currently looking at, where I'm experimenting with Panda CSS.",
     website: "#hero",
     source: "https://github.com/curetix/homepage",
     technologies: [
-      technologies.react,
-      technologies.nextjs,
+      technologies.astro,
       technologies.panda,
       // technologies.vercel,
     ],
