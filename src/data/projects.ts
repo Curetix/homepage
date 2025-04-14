@@ -1,11 +1,3 @@
-import livearchive_de_dark from "~/assets/livearchive_de_dark.png";
-import livearchive_de_light from "~/assets/livearchive_de_light.png";
-import livearchive_en_dark from "~/assets/livearchive_en_dark.png";
-import livearchive_en_light from "~/assets/livearchive_en_light.png";
-import mailflare_dark from "~/assets/mailflare_dark.png";
-import mailflare_light from "~/assets/mailflare_light.png";
-import polls_dark from "~/assets/polls_dark.png";
-import polls_light from "~/assets/polls_light.png";
 import { token } from "styled-system/tokens";
 
 export type Technology = {
@@ -26,7 +18,7 @@ export type Project = {
   isArchived?: boolean;
   images?: {
     [lang: string]: {
-      [theme: string]: ImageMetadata;
+      [theme: string]: () => Promise<{ default: ImageMetadata }>;
     };
   };
 };
@@ -67,12 +59,6 @@ export const technologies = {
   },
 
   // Styling frameworks & component libraries
-  tailwind: {
-    name: "Tailwind CSS",
-    website: "https://tailwindcss.com/",
-    color: token("colors.cyan.500"),
-    icon: "tailwindcss",
-  },
   mantine: {
     name: "Mantine UI",
     website: "https://mantine.dev",
@@ -89,15 +75,10 @@ export const technologies = {
     name: "Panda CSS",
     website: "https://panda-css.com/",
     color: token("colors.yellow.500"),
+    icon: "panda",
   },
 
   // Deployments
-  vercel: {
-    name: "Vercel ",
-    website: "https://vercel.com",
-    color: token("colors.white"),
-    icon: "vercel",
-  },
   cloudflarePages: {
     name: "Cloudflare Pages",
     website: "https://www.cloudflare.com/developer-platform/pages",
@@ -121,18 +102,19 @@ export const projects: Project[] = [
       "Complete rewrite of the LiveArchive website with optimizations for mobile and many new features.",
     website: "https://livearchive.net",
     technologies: [
+      technologies.typescript,
       technologies.react,
       technologies.nextjs,
       technologies.chakra,
     ],
     images: {
       de: {
-        dark: livearchive_de_dark,
-        light: livearchive_de_light,
+        dark: () => import("~/assets/screenshots/livearchive_de_dark.png"),
+        light: () => import("~/assets/screenshots/livearchive_de_light.png"),
       },
       en: {
-        dark: livearchive_en_dark,
-        light: livearchive_en_light,
+        dark: () => import("~/assets/screenshots/livearchive_en_dark.png"),
+        light: () => import("~/assets/screenshots/livearchive_en_light.png"),
       },
     },
   },
@@ -143,18 +125,19 @@ export const projects: Project[] = [
     website: "https://mailflare.cc",
     source: "https://github.com/curetix/mailflare-extension",
     technologies: [
+      technologies.typescript,
       technologies.react,
       technologies.mantine,
       technologies.cloudflarePages,
     ],
     images: {
       de: {
-        dark: mailflare_dark,
-        light: mailflare_light,
+        dark: () => import("~/assets/screenshots/mailflare_dark.png"),
+        light: () => import("~/assets/screenshots/mailflare_light.png"),
       },
       en: {
-        dark: mailflare_dark,
-        light: mailflare_light,
+        dark: () => import("~/assets/screenshots/mailflare_dark.png"),
+        light: () => import("~/assets/screenshots/mailflare_light.png"),
       },
     },
   },
@@ -165,20 +148,19 @@ export const projects: Project[] = [
     source: "https://github.com/curetix/supabase-polls",
     isArchived: true,
     technologies: [
+      technologies.typescript,
       technologies.react,
-      technologies.nextjs,
       technologies.chakra,
       technologies.supabase,
-      // technologies.vercel,
     ],
     images: {
       de: {
-        dark: polls_dark,
-        light: polls_light,
+        dark: () => import("~/assets/screenshots/polls_dark.png"),
+        light: () => import("~/assets/screenshots/polls_light.png"),
       },
       en: {
-        dark: polls_dark,
-        light: polls_light,
+        dark: () => import("~/assets/screenshots/polls_dark.png"),
+        light: () => import("~/assets/screenshots/polls_light.png"),
       },
     },
   },
@@ -196,9 +178,9 @@ export const projects: Project[] = [
     website: "#hero",
     source: "https://github.com/curetix/homepage",
     technologies: [
+      technologies.typescript,
       technologies.astro,
       technologies.panda,
-      // technologies.vercel,
     ],
   },
 ];

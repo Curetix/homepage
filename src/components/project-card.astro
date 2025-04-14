@@ -29,7 +29,7 @@ const classes = card();
       images &&
         ["dark", "light"].map((mode) => (
           <Picture
-            src={images["en"][mode]}
+            src={images["en"][mode]()}
             formats={["avif", "webp"]}
             alt={`Screenshot of the project ${name}`}
             layout="responsive"
