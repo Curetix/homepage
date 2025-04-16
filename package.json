@@ -17,14 +17,12 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@fontsource/outfit": "^5.2.5",
     "astro": "^5.7.2",
     "astro-icon": "^1.1.5"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@pandacss/dev": "^0.53.4",
-    "@park-ui/panda-preset": "^0.43.1",
-    "sharp": "^0.34.1"
+    "@park-ui/panda-preset": "^0.43.1"
   }
 }

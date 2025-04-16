@@ -1,6 +1,6 @@
 ---
+import { Font } from "astro:assets";
 import ColorModeScript from "~/components/color-mode-script.astro";
-import "@fontsource/outfit";
 import "../index.css";
 
 import { css } from "styled-system/css";
@@ -45,6 +45,13 @@ import ColorModeButton from "~/components/color-mode-button.astro";
     <meta name="twitter:image" content="/opengraph.webp" />
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="600" />
+
+    <Font cssVariable="--font-outfit" preload />
+    <style>
+      body {
+        font-family: var(--font-outfit);
+      }
+    </style>
 
     <ColorModeScript />
   </head>
