@@ -23,6 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@pandacss/dev": "^0.53.4",
-    "@park-ui/panda-preset": "^0.43.1"
+    "@park-ui/panda-preset": "^0.43.1",
+    "sharp": "^0.34.1"
   }
 }
