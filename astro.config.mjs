@@ -1,15 +1,14 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [icon()],
-    experimental: {
-        responsiveImages: true,
-        svg: true,
-    },
-    build: {
-        inlineStylesheets: "always"
-    }
+  integrations: [icon()],
+  experimental: {
+    responsiveImages: true,
+  },
+  build: {
+    inlineStylesheets: "always",
+  },
 });
