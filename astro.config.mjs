@@ -13,8 +13,8 @@ export default defineConfig({
         cssVariable: "--font-outfit",
       },
     ],
-    responsiveImages: true,
   },
+  image: { responsiveStyles: true },
   build: {
     inlineStylesheets: "always",
   },
